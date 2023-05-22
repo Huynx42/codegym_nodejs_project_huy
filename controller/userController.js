@@ -73,7 +73,7 @@ exports.updateUser = async(req, res) => {
   let {username, password} = req.body
   const user = await UserModel.findOne({_id:id});
   user.password = await bcrypt.hash(password, 10)
-  console.log(user)
+  // console.log(user)
   await UserModel.findOneAndUpdate({_id: id}, user);
   res.redirect('/user/manager')
 }
